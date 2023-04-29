@@ -28,7 +28,7 @@ class CurrentCityModel extends CurrentCityEntity {
     num? dt,
     Sys? sys,
     num? timezone,
-    num? idp
+    num? id,
     String? name,
     num? cod,
   }) : super(
