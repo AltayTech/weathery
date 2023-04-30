@@ -1,6 +1,13 @@
 part of 'home_bloc.dart';
 
-@immutable
-abstract class HomeState {}
+class HomeState {
+  CwStatus cwStatus;
 
-class HomeInitial extends HomeState {}
+  HomeState({required this.cwStatus});
+
+  HomeState copyWith({CwStatus? newCwStatus}) {
+    return HomeState(
+      cwStatus: newCwStatus ?? this.cwStatus,
+    );
+  }
+}
