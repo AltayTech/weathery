@@ -1,6 +1,6 @@
-class ForeCastParam {
-  double lat;
-  double lon;
+class ForecastParams {
+  num lat;
+  num lon;
 
-  ForeCastParam(this.lat, this.lon);
+  ForecastParams(this.lat, this.lon);
 }

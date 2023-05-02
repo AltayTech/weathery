@@ -71,10 +71,8 @@ class CurrentCityModel extends CurrentCityEntity {
       id: json['id'],
       name: json['name'],
       cod: json['cod'],
-    );
+     );
   }
-
-
 
   CurrentCityModel copyWith({
     Coord? coord,

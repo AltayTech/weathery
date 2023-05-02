@@ -4,7 +4,13 @@ part of 'home_bloc.dart';
 abstract class HomeEvent {}
 
 class LoadCwEvent extends HomeEvent {
-  late final String cityName;
+  final String cityName;
 
   LoadCwEvent(this.cityName);
+}
+
+class LoadFwEvent extends HomeEvent {
+  final ForecastParams foreCastParam;
+
+  LoadFwEvent(this.foreCastParam);
 }

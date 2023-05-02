@@ -18,7 +18,7 @@ class ApiProvider {
   }
 
   /// return forecast weather of next 7 days
-  Future<dynamic> sendRequest7DaysForecast(ForeCastParam param) async {
+  Future<dynamic> sendRequest7DaysForecast(ForecastParams param) async {
     var response = await _dio.get(
       '${Constants.basicURL}/data/2.5/onecall',
       queryParameters: {
