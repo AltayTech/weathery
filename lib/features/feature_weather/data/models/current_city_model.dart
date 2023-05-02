@@ -32,26 +32,25 @@ class CurrentCityModel extends CurrentCityEntity {
     String? name,
     num? cod,
   }) : super(
-    coord: coord,
-    weather: weather,
-    base: base,
-    main: main,
-    visibility: visibility,
-    wind: wind,
-    rain: rain,
-    clouds: clouds,
-    dt: dt,
-    sys: sys,
-    timezone: timezone,
-    id: id,
-    name: name,
-    cod: cod,
-  );
+          coord: coord,
+          weather: weather,
+          base: base,
+          main: main,
+          visibility: visibility,
+          wind: wind,
+          rain: rain,
+          clouds: clouds,
+          dt: dt,
+          sys: sys,
+          timezone: timezone,
+          id: id,
+          name: name,
+          cod: cod,
+        );
 
   factory CurrentCityModel.fromJson(dynamic json) {
     List<Weather> weather = [];
     if (json['weather'] != null) {
-      weather = [];
       json['weather'].forEach((v) {
         weather.add(Weather.fromJson(v));
       });
@@ -60,7 +59,6 @@ class CurrentCityModel extends CurrentCityEntity {
     return CurrentCityModel(
       coord: json['coord'] != null ? Coord.fromJson(json['coord']) : null,
       weather: weather,
-
       base: json['base'],
       main: json['main'] != null ? Main.fromJson(json['main']) : null,
       visibility: json['visibility'],
@@ -76,20 +74,7 @@ class CurrentCityModel extends CurrentCityEntity {
     );
   }
 
-  Coord? coord;
-  List<Weather>? weather;
-  String? base;
-  Main? main;
-  num? visibility;
-  Wind? wind;
-  Rain? rain;
-  Clouds? clouds;
-  num? dt;
-  Sys? sys;
-  num? timezone;
-  num? id;
-  String? name;
-  num? cod;
+
 
   CurrentCityModel copyWith({
     Coord? coord,
