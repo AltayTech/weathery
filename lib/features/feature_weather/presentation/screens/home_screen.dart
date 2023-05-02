@@ -1,13 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:weathery/features/feature_weather/domain/use_case/get_suggest_city_use_case.dart';
 
 import '../../../../core/params/forecast_param.dart';
 import '../../../../core/utils/date_converter.dart';
 import '../../../../core/widgets/app_background.dart';
 import '../../../../core/widgets/dot_loading_widget.dart';
+import '../../../../locator.dart';
 import '../../data/models/forecast_day_model.dart';
+import '../../data/models/suggested_ city_model.dart';
 import '../../domain/entities/current_city_entity.dart';
 import '../../domain/entities/forecast_days_entity.dart';
 import '../bloc/cw_status.dart';
@@ -25,6 +29,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String cityName = 'Ankara';
   final PageController _pageController = PageController();
+  final TextEditingController _textEditingController = TextEditingController();
+  GetSuggestCityUseCase getSuggestCityUseCase =
+      GetSuggestCityUseCase(locator());
 
   @override
   void initState() {
@@ -43,6 +50,30 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizedBox(
+            height: height * 0.03,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: width * 0.02),
+            child: TypeAheadField(
+              suggestionsCallback: (String prefic) {
+                return getSuggestCityUseCase(prefic);
+              },
+              itemBuilder: (context, Data data) {
+                return ListTile(
+                  leading: const Icon(Icons.location_on),
+                  title: Text(data.name!),
+                  subtitle: Text("${data.region!} , ${data.country!}"),
+                );
+              },
+              onSuggestionSelected: (Data data) {
+                _textEditingController.text = data.name!;
+                BlocProvider.of<HomeBloc>(context).add(LoadCwEvent(data.name!));
+              },
+            ),
+          ),
+
+          /// Main UI
           BlocBuilder<HomeBloc, HomeState>(
             buildWhen: (previous, current) {
               if (previous.cwStatus == current.cwStatus) {
@@ -288,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     final FwError fwError =
                                         state.fwStatus as FwError;
                                     return Center(
-                                      child: Text(fwError.message!),
+                                      child: Text(fwError.message),
                                     );
                                   }
 

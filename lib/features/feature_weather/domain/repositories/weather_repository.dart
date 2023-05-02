@@ -1,3 +1,4 @@
+import 'package:weathery/features/feature_weather/data/models/suggested_%20city_model.dart';
 import 'package:weathery/features/feature_weather/domain/entities/current_city_entity.dart';
 import 'package:weathery/features/feature_weather/domain/entities/forecast_days_entity.dart';
 
@@ -9,4 +10,6 @@ abstract class WeatherRepository {
 
   Future<DataState<ForecastDaysEntity>> fetchForecastDaysData(
       ForecastParams param);
+
+  Future<List<Data>> fetchSuggestCityData(String prefix);
 }
