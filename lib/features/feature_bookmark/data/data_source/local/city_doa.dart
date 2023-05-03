@@ -4,17 +4,16 @@ import 'package:floor/floor.dart';
 import 'package:weathery/features/feature_bookmark/domain/entities/city_entity.dart';
 
 @dao
-abstract class CityDao{
-  @Query('SELECT * FROM city')
-  Future<List<City>> findAllCity();
+abstract class CityDao {
+  @Query('SELECT * FROM City')
+  Future<List<City>> getAllCity();
 
-  @Query('SELECT * FROM city WHERE name= :name')
-  Future<List<String>> findCityByName(String name);
-
-  @Query('DELETE FROM city WHERE name= :name')
-  Future<List<String>> deleteCityByName(String name);
+  @Query('SELECT * FROM City WHERE name = :name')
+  Future<City?> findCityByName(String name);
 
   @insert
   Future<void> insertCity(City city);
 
+  @Query('DELETE FROM City WHERE name = :name')
+  Future<void> deleteCityByName(String name);
 }

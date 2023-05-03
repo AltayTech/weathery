@@ -34,13 +34,13 @@ class WeatherRepositoryImpl extends WeatherRepository {
 
         return DataSuccess(currentCityEntity);
       } else {
-        return DataFiald('Something went wrong...');
+        return DataFailed('Something went wrong...');
       }
     } catch (e) {
       debugPrint('e.toString()');
       debugPrint(e.toString());
 
-      return DataFiald(e.toString());
+      return DataFailed(e.toString());
     }
   }
 
@@ -61,13 +61,13 @@ class WeatherRepositoryImpl extends WeatherRepository {
 
         return DataSuccess(forecastDaysEntity);
       } else {
-        return DataFiald('Something went wrong...');
+        return DataFailed('Something went wrong...');
       }
     } catch (e) {
       debugPrint('e.toString()');
       debugPrint(e.toString());
 
-      return DataFiald(e.toString());
+      return DataFailed(e.toString());
     }
   }
 

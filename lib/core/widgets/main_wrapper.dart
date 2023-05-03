@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:weathery/core/widgets/app_background.dart';
 import 'package:weathery/core/widgets/bottom_nav.dart';
-import 'package:weathery/features/feature_bookmark/presentation/screens/bookmark_screen.dart';
 import 'package:weathery/features/feature_weather/presentation/screens/home_screen.dart';
+
+import '../../features/feature_bookmark/presentation/screens/bookmark_screen.dart';
 
 class MainWrapper extends StatelessWidget {
   MainWrapper({Key? key}) : super(key: key);
@@ -12,9 +13,9 @@ class MainWrapper extends StatelessWidget {
     const HomeScreen(),
     const BookmarkScreen(),
   ];
+
   @override
   Widget build(BuildContext context) {
-
     // var height = MediaQuery.of(context).size.height;
     return Scaffold(
       extendBody: true,

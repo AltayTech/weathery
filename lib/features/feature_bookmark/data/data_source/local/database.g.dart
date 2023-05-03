@@ -116,23 +116,23 @@ class _$CityDao extends CityDao {
   final InsertionAdapter<City> _cityInsertionAdapter;
 
   @override
-  Future<List<City>> findAllCity() async {
-    return _queryAdapter.queryList('SELECT * FROM city',
-        mapper: (Map<String, Object?> row) => City(row['name'] as String));
+  Future<List<City>> getAllCity() async {
+    return _queryAdapter.queryList('SELECT * FROM City',
+        mapper: (Map<String, Object?> row) =>
+            City(name: row['name'] as String));
   }
 
   @override
-  Future<List<String>> findCityByName(String name) async {
-    return _queryAdapter.queryList('SELECT * FROM city WHERE name= ?1',
-        mapper: (Map<String, Object?> row) => row.values.first as String,
+  Future<City?> findCityByName(String name) async {
+    return _queryAdapter.query('SELECT * FROM City WHERE name = ?1',
+        mapper: (Map<String, Object?> row) => City(name: row['name'] as String),
         arguments: [name]);
   }
 
   @override
-  Future<List<String>> deleteCityByName(String name) async {
-    return _queryAdapter.queryList('DELETE FROM city WHERE name= ?1',
-        mapper: (Map<String, Object?> row) => row.values.first as String,
-        arguments: [name]);
+  Future<void> deleteCityByName(String name) async {
+    await _queryAdapter
+        .queryNoReturn('DELETE FROM City WHERE name = ?1', arguments: [name]);
   }
 
   @override

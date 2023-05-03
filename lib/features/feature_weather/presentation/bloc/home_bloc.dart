@@ -26,7 +26,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
       if (dataState is DataSuccess) {
         emit(state.copyWith(newCwStatus: CwCompleted(dataState.data)));
-      } else if (dataState is DataFiald) {
+      } else if (dataState is DataFailed) {
         emit(state.copyWith(newCwStatus: CwError(dataState.error!)));
       }
     });
@@ -39,7 +39,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
       if (dataState is DataSuccess) {
         emit(state.copyWith(newFwStatus: FwCompleted(dataState.data)));
-      } else if (dataState is DataFiald) {
+      } else if (dataState is DataFailed) {
         emit(state.copyWith(newFwStatus: FwError(dataState.error!)));
       }
     });
