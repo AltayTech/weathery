@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:weathery/features/feature_bookmark/data/data_source/local/database.dart';
 import 'package:weathery/features/feature_weather/data/data_source/remote/api_provider.dart';
 import 'package:weathery/features/feature_weather/domain/repositories/weather_repository.dart';
 import 'package:weathery/features/feature_weather/domain/use_case/get_current_weather_usecase.dart';
@@ -9,8 +10,12 @@ import 'features/feature_weather/domain/use_case/get_forecast_weather_usecase.da
 
 GetIt locator = GetIt.instance;
 
-setup() {
+setup() async {
   locator.registerSingleton<ApiProvider>(ApiProvider());
+
+  final appDatabase =
+      await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+  locator.registerSingleton<AppDatabase>(appDatabase);
 
   /// register weatherREpository
   locator
