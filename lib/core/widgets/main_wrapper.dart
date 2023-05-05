@@ -9,13 +9,13 @@ class MainWrapper extends StatelessWidget {
   MainWrapper({Key? key}) : super(key: key);
 
   final PageController pageController = PageController(initialPage: 0);
-  List<Widget> pageViewWidget = [
-    const HomeScreen(),
-    const BookmarkScreen(),
-  ];
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> pageViewWidget = [
+      const HomeScreen(),
+      BookmarkScreen(pageController: pageController),
+    ];
     // var height = MediaQuery.of(context).size.height;
     return Scaffold(
       extendBody: true,
