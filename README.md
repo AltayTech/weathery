@@ -1,16 +1,34 @@
-# weathery
+# Weathery
 
-Weather app
+A simple Flutter app that displays the current weather conditions.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+* Displays the current temperature, humidity, and precipitation
+* Shows the weather forecast for the next 7 days
+* Allows users to search for weather conditions in different cities
+* **Bookmarks favorite cities for easy access**
 
-A few resources to get you started if this is your first Flutter project:
+## How to install and use
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Clone the repository to your computer
+2. Open the project in your favorite IDE
+3. Run the app on your device or emulator
+4. Enter a city name in the search bar to view the weather conditions for that city
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Known bugs and issues
+
+* The app may not be accurate for all locations
+* The app may crash on some devices
+
+## GitHub repository
+
+The app's source code is available on GitHub:
+
+https://github.com/AltayTech/weathery
+
+## Additional details
+
+* The app uses Bloc for state management.
+* The app is written in the clean architecture pattern.
+* Users can bookmark favorite cities for easy access.
