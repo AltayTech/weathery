@@ -8,6 +8,7 @@ A Flutter app that displays the current weather conditions.
 * Shows the weather forecast for the next 7 days
 * Allows users to search for weather conditions in different cities
 * **Bookmarks favorite cities for easy access**
+* **Builds for Android, iOS, Windows, and Mac**
 
 ## How to install and use
 
@@ -32,3 +33,8 @@ https://github.com/AltayTech/weathery
 * The app uses Bloc for state management.
 * The app is written in the clean architecture pattern.
 * Users can bookmark favorite cities for easy access.
+* The app can be built for Android, iOS, Windows, and Mac.
+
+## Contributing
+
+Contributions are welcome! Please feel free to open issues or pull requests.
