@@ -5,9 +5,9 @@ import '../../domain/entities/suggest_city_entity.dart';
 
 class SuggestCityModel extends SuggestCityEntity {
   SuggestCityModel({
-    List<Data>? data,
-    Metadata? metadata,
-  }) : super(data: data, metadata: metadata);
+    super.data,
+    super.metadata,
+  });
 
   factory SuggestCityModel.fromJson(dynamic json) {
     /// parse json to object

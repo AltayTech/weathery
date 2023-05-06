@@ -52,6 +52,8 @@ dev_dependencies:
     sdk: flutter
   floor_generator:
   build_runner:
+#  lint: ^2.0.1
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

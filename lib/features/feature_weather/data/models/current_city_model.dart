@@ -16,37 +16,22 @@ import 'package:weathery/features/feature_weather/domain/entities/current_city_e
 /// cod : 200
 
 class CurrentCityModel extends CurrentCityEntity {
-  CurrentCityModel({
-    Coord? coord,
-    List<Weather>? weather,
-    String? base,
-    Main? main,
-    num? visibility,
-    Wind? wind,
-    Rain? rain,
-    Clouds? clouds,
-    num? dt,
-    Sys? sys,
-    num? timezone,
-    num? id,
-    String? name,
-    num? cod,
-  }) : super(
-          coord: coord,
-          weather: weather,
-          base: base,
-          main: main,
-          visibility: visibility,
-          wind: wind,
-          rain: rain,
-          clouds: clouds,
-          dt: dt,
-          sys: sys,
-          timezone: timezone,
-          id: id,
-          name: name,
-          cod: cod,
-        );
+  const CurrentCityModel({
+    super.coord,
+    super.weather,
+    super.base,
+    super.main,
+    super.visibility,
+    super.wind,
+    super.rain,
+    super.clouds,
+    super.dt,
+    super.sys,
+    super.timezone,
+    super.id,
+    super.name,
+    super.cod,
+  });
 
   factory CurrentCityModel.fromJson(dynamic json) {
     List<Weather> weather = [];

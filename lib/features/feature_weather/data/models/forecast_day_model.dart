@@ -12,21 +12,14 @@ import 'package:weathery/features/feature_weather/domain/entities/forecast_days_
 
 class ForecastDayModel extends ForecastDaysEntity {
   const ForecastDayModel({
-    num? lat,
-    num? lon,
-    String? timezone,
-    num? timezoneOffset,
-    Current? current,
-    List<Daily>? daily,
-    List<Alerts>? alerts,
-  }) : super(
-            lat: lat,
-            lon: lon,
-            timezone: timezone,
-            timezoneOffset: timezoneOffset,
-            current: current,
-            daily: daily,
-            alerts: alerts);
+    super.lat,
+    super.lon,
+    super.timezone,
+    super.timezoneOffset,
+    super.current,
+    super.daily,
+    super.alerts,
+  });
 
   factory ForecastDayModel.fromJson(dynamic json) {
     /// convert daily from json

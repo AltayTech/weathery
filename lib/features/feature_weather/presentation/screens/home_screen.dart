@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: height * 0.02,),
+            SizedBox(height: height * 0.03,),
 
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width * 0.03),
@@ -357,7 +357,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
                                       if (state.fwStatus is FwError) {
                                         final FwError fwError = state.fwStatus as FwError;
                                         return Center(
-                                          child: Text(fwError.message!),
+                                          child: Text(fwError.message),
                                         );
                                       }
 

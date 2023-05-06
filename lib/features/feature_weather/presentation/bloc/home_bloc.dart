@@ -2,15 +2,13 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:weathery/core/params/forecast_param.dart';
+import 'package:weathery/core/resources/data_state.dart';
 import 'package:weathery/features/feature_weather/domain/use_case/get_current_weather_usecase.dart';
 import 'package:weathery/features/feature_weather/domain/use_case/get_forecast_weather_usecase.dart';
 import 'package:weathery/features/feature_weather/presentation/bloc/cw_status.dart';
 import 'package:weathery/features/feature_weather/presentation/bloc/fw_status.dart';
 
-import '../../../../core/resources/data_state.dart';
-
 part 'home_event.dart';
-
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
