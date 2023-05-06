@@ -1,6 +1,6 @@
 # Weathery
 
-A simple Flutter app that displays the current weather conditions.
+A Flutter app that displays the current weather conditions.
 
 ## Features
 
