@@ -13,6 +13,7 @@ import 'package:weathery/features/feature_bookmark/presentation/bloc/get_city_st
 import 'package:weathery/features/feature_bookmark/presentation/bloc/save_city_status.dart';
 
 part 'bookmark_event.dart';
+
 part 'bookmark_state.dart';
 
 class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
@@ -43,7 +44,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
       }
 
       if (dataState is DataFailed) {
-        emit(state.copyWith(newCityStatus: GetCityError(dataState.data)));
+        emit(state.copyWith(newCityStatus: GetCityError(dataState.error)));
       }
     });
 
@@ -59,8 +60,8 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
       }
 
       if (dataState is DataFailed) {
-        emit(
-            (state.copyWith(newSaveCityStatus: SaveCityError(dataState.data))));
+        emit((state.copyWith(
+            newSaveCityStatus: SaveCityError(dataState.error))));
       }
     });
 
@@ -68,24 +69,27 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     on<SaveCityInitialEvent>((event, emit) async {
       emit(state.copyWith(newSaveCityStatus: SaveCityInitial()));
     });
+
     /// get All city
     on<GetAllCityEvent>((event, emit) async {
-
       /// emit Loading state
       emit(state.copyWith(newGetAllCityStatus: GetAllCityLoading()));
 
       DataState dataState = await getAllCityUseCase(NoParams());
 
       /// emit Complete state
-      if(dataState is DataSuccess){
-        emit(state.copyWith(newGetAllCityStatus: GetAllCityCompleted(dataState.data)));
+      if (dataState is DataSuccess) {
+        emit(state.copyWith(
+            newGetAllCityStatus: GetAllCityCompleted(dataState.data)));
       }
 
       /// emit Error state
-      if(dataState is DataFailed){
-        emit(state.copyWith(newGetAllCityStatus: GetAllCityError(dataState.error)));
+      if (dataState is DataFailed) {
+        emit(state.copyWith(
+            newGetAllCityStatus: GetAllCityError(dataState.error)));
       }
     });
+
     /// City Delete Event
     on<DeleteCityByNameEvent>((event, emit) async {
       /// emit Loading state
@@ -94,15 +98,16 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
       DataState dataState = await deleteCityUseCase(event.cityName);
 
       /// emit Complete state
-      if(dataState is DataSuccess){
-        emit(state.copyWith(newDeleteCityStatus: DeleteCityCompleted(dataState.data)));
+      if (dataState is DataSuccess) {
+        emit(state.copyWith(
+            newDeleteCityStatus: DeleteCityCompleted(dataState.data)));
       }
 
       /// emit Error state
-      if(dataState is DataFailed){
-        emit(state.copyWith(newDeleteCityStatus: DeleteCityError(dataState.error)));
+      if (dataState is DataFailed) {
+        emit(state.copyWith(
+            newDeleteCityStatus: DeleteCityError(dataState.error)));
       }
     });
-
   }
 }
