@@ -1,4 +1,5 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weathery/features/feature_bookmark/presentation/bloc/bookmark_bloc.dart';
@@ -12,7 +13,7 @@ void main() async {
 
   await setup();
   runApp(DevicePreview(
-    enabled: true,
+    enabled: kDebugMode,
     builder: (context) {
       return MyApp();
     },
