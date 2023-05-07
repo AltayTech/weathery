@@ -6,14 +6,12 @@ abstract class SaveCityStatus extends Equatable {}
 
 class SaveCityInitial extends SaveCityStatus {
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }
 
 // loading state
 class SaveCityLoading extends SaveCityStatus {
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }
 
@@ -24,7 +22,6 @@ class SaveCityCompleted extends SaveCityStatus {
   SaveCityCompleted(this.city);
 
   @override
-  // TODO: implement props
   List<Object?> get props => [city];
 }
 
