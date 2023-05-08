@@ -365,14 +365,20 @@ class _HomeScreenState extends State<HomeScreen>
                                                 .toString());
                                           }
 
+                                          late TooltipBehavior _tooltipBehavior;
+                                          _tooltipBehavior =
+                                              TooltipBehavior(enable: true);
+
                                           return Container(
                                             child: SfCartesianChart(
-                                                // title: ChartTitle(text: 'Humidity'),
                                                 primaryXAxis: CategoryAxis(),
+                                                tooltipBehavior:
+                                                    _tooltipBehavior,
                                                 series: <ChartSeries>[
                                                   // Initialize line series
-                                                  LineSeries<HumidityModel,
+                                                  AreaSeries<HumidityModel,
                                                           String>(
+                                                      enableTooltip: true,
                                                       dataSource: humidityList,
                                                       xValueMapper:
                                                           (HumidityModel data,
