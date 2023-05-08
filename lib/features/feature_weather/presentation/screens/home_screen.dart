@@ -374,6 +374,7 @@ class _HomeScreenState extends State<HomeScreen>
                                                 primaryXAxis: CategoryAxis(),
                                                 tooltipBehavior:
                                                     _tooltipBehavior,
+
                                                 series: <ChartSeries>[
                                                   // Initialize line series
                                                   AreaSeries<HumidityModel,
