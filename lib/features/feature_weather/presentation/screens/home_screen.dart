@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:weathery/features/feature_weather/domain/use_case/get_suggest_city_use_case.dart';
 
 import '../../../../core/params/forecast_param.dart';
@@ -310,8 +311,99 @@ class _HomeScreenState extends State<HomeScreen>
                               ],
                             );
                           } else {
-                            return Container(
-                              color: Colors.amber,
+                            return Column(
+                              children: [
+                                /// Humidity
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 50),
+                                  child: Text(
+                                    'Humidity',
+                                    style: const TextStyle(
+                                        fontSize: 30, color: Colors.white),
+                                  ),
+                                ),
+
+                                const SizedBox(
+                                  height: 10,
+                                ),
+
+                                /// Humidity chart
+                                Expanded(
+                                  child: SizedBox(
+                                    child: BlocBuilder<HomeBloc, HomeState>(
+                                      builder: (BuildContext context, state) {
+                                        /// show Loading State for Fw
+                                        if (state.fwStatus is FwLoading) {
+                                          return const DotLoadingWidget();
+                                        }
+
+                                        /// show Completed State for Fw
+                                        if (state.fwStatus is FwCompleted) {
+                                          /// casting
+                                          final FwCompleted fwCompleted =
+                                              state.fwStatus as FwCompleted;
+                                          final ForecastDaysEntity
+                                              forecastDaysEntity =
+                                              fwCompleted.forecastDaysEntity;
+                                          final List<Daily> mainDaily =
+                                              forecastDaysEntity.daily!;
+                                          List<HumidityModel> humidityList = [];
+                                          for (int i = 0;
+                                              i < mainDaily.length;
+                                              i++) {
+                                            humidityList.add(HumidityModel(
+                                                date: DateConverter
+                                                        .changeDtToDateTime(
+                                                            mainDaily[i].dt)
+                                                    .toString(),
+                                                humidity:
+                                                    mainDaily[i].humidity!));
+
+                                            debugPrint(humidityList[i].date);
+                                            debugPrint(humidityList[i]
+                                                .humidity
+                                                .toString());
+                                          }
+
+                                          return Container(
+                                            child: SfCartesianChart(
+                                                // title: ChartTitle(text: 'Humidity'),
+                                                primaryXAxis: CategoryAxis(),
+                                                series: <ChartSeries>[
+                                                  // Initialize line series
+                                                  LineSeries<HumidityModel,
+                                                          String>(
+                                                      dataSource: humidityList,
+                                                      xValueMapper:
+                                                          (HumidityModel data,
+                                                                  _) =>
+                                                              data.date,
+                                                      yValueMapper:
+                                                          (HumidityModel data,
+                                                                  _) =>
+                                                              data.humidity)
+                                                ]),
+                                            height: 200,
+                                          );
+                                        }
+
+                                        /// show Error State for Fw
+                                        if (state.fwStatus is FwError) {
+                                          final FwError fwError =
+                                              state.fwStatus as FwError;
+                                          return Center(
+                                            child: Text(fwError.message),
+                                          );
+                                        }
+
+                                        /// show Default State for Fw
+                                        return Container();
+                                      },
+                                    ),
+                                    height: 60,
+                                  ),
+                                )
+                              ],
                             );
                           }
                         },
@@ -429,14 +521,10 @@ class _HomeScreenState extends State<HomeScreen>
 
                   /// last Row
                   Container(
-
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Column
-
-
-                          (
+                        Column(
                           children: [
                             Text(
                               "wind speed",
@@ -555,7 +643,7 @@ class _HomeScreenState extends State<HomeScreen>
                         ),
                       ],
                     ),
-                    width: width*0.09,
+                    width: width * 0.09,
                   ),
 
                   SizedBox(
@@ -584,4 +672,14 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
+}
+
+class HumidityModel {
+  final String date;
+  final num? humidity;
+
+  HumidityModel({
+    required this.date,
+    required this.humidity,
+  });
 }
