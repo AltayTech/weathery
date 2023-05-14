@@ -45,6 +45,8 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
 
     BlocProvider.of<HomeBloc>(context).add(LoadCwEvent(cityName));
+
+
   }
 
   @override

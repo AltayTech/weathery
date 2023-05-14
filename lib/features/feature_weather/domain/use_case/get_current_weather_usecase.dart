@@ -6,7 +6,7 @@ import '../../../../core/resources/data_state.dart';
 
 class GetCurrentWeatherUseCase
     extends UseCase<DataState<CurrentCityEntity>, String> {
-  late final WeatherRepository weatherRepository;
+  final WeatherRepository weatherRepository;
 
   GetCurrentWeatherUseCase(this.weatherRepository);
 

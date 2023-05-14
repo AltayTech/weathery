@@ -19,7 +19,6 @@ GetIt locator = GetIt.instance;
 
 setup() async {
   locator.registerSingleton<ApiProvider>(ApiProvider());
-
   final database =
       await $FloorAppDatabase.databaseBuilder('app_database.db').build();
   locator.registerSingleton<AppDatabase>(database);
@@ -39,7 +38,6 @@ setup() async {
   locator.registerSingleton<SaveCityUseCase>(SaveCityUseCase(locator()));
   locator.registerSingleton<GetAllCityUseCase>(GetAllCityUseCase(locator()));
   locator.registerSingleton<DeleteCityUseCase>(DeleteCityUseCase(locator()));
-
   locator.registerSingleton<HomeBloc>(HomeBloc(locator(), locator()));
   locator.registerSingleton<BookmarkBloc>(
       BookmarkBloc(locator(), locator(), locator(), locator()));

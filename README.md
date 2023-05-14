@@ -34,6 +34,7 @@ https://github.com/AltayTech/weathery
 * The app is written in the clean architecture pattern.
 * Users can bookmark favorite cities for easy access.
 * The app can be built for Android, iOS, Windows, and Mac.
+* The app uses syncfusion package for Charts
 
 ## Contributing
 
