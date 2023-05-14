@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:weathery/core/params/forecast_param.dart';
 import 'package:weathery/core/utils/constants.dart';
 
-class ApiProvider {
+class FfApiProvider {
   final Dio _dio = Dio();
 
   String apiKey = Constants.apiKey1;
