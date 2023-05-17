@@ -1,22 +1,20 @@
 part of 'forecast_bloc.dart';
 
 class ForecastState extends Equatable {
+  F3HourlyState f3hourlyState;
 
-  F16DaysState f16daysState;
-
-
-  ForecastState({required this.f16daysState,});
-
+  ForecastState({
+    required this.f3hourlyState,
+  });
 
   ForecastState copyWith({
-    F16DaysState? newF16daysState,
+    F3HourlyState? newF3hourlyState,
   }) {
-    return ForecastState(f16daysState: newF16daysState ?? this.f16daysState,);
+    return ForecastState(
+      f3hourlyState: newF3hourlyState ?? this.f3hourlyState,
+    );
   }
 
   @override
-  List<Object?> get props => [f16daysState];
-
-
+  List<Object?> get props => [f3hourlyState];
 }
-

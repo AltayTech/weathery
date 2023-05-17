@@ -8,18 +8,19 @@ class FfApiProvider {
 
   String apiKey = Constants.apiKey1;
 
-  /// return forecast of next 16 days from api
-  Future<dynamic> callForecast16Days(ForecastParams params) async {
+  /// return forecast 3 hourly of next 5 days from api
+  Future<dynamic> callForecast3HourlyDays(ForecastParams params) async {
+    debugPrint('${Constants.basicURL}/data/2.5/forecast');
+
     var response = await _dio
-        .get('${Constants.basicURL}/data/2.5/forecast/daily', queryParameters: {
+        .get('${Constants.basicURL}/data/2.5/forecast', queryParameters: {
       'lat': params.lat,
       'lon': params.lon,
-      'exclude': 'minutely,hourly',
       'appid': apiKey,
       'units': 'metric',
     });
 
-    debugPrint(response.toString());
+    debugPrint(response.headers.toString());
     return response;
   }
 }

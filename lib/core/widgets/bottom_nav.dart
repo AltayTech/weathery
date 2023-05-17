@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatelessWidget {
-  PageController pageController;
+  final PageController pageController;
 
   BottomNav({Key? key, required this.pageController}) : super(key: key);
 
@@ -35,6 +35,15 @@ class BottomNav extends StatelessWidget {
                     curve: Curves.easeInOut);
               },
               icon: const Icon(Icons.bookmark),
+            ),
+            const SizedBox(),
+            IconButton(
+              onPressed: () {
+                pageController.animateToPage(2,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut);
+              },
+              icon: const Icon(Icons.bar_chart),
             ),
           ],
         ),

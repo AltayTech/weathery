@@ -3,8 +3,8 @@ part of 'forecast_bloc.dart';
 @immutable
 abstract class ForecastEvent {}
 
-class LoadF16DaysEvent extends ForecastEvent {
+class LoadF3HourlyEvent extends ForecastEvent {
   final ForecastParams forecastParams;
 
-  LoadF16DaysEvent(this.forecastParams);
+  LoadF3HourlyEvent(this.forecastParams);
 }
