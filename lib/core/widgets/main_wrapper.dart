@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weathery/core/widgets/app_background.dart';
 import 'package:weathery/core/widgets/bottom_nav.dart';
+import 'package:weathery/core/widgets/drawer_menu.dart';
 import 'package:weathery/features/feature_forecast/presentation/screens/forecast_screen.dart';
 import 'package:weathery/features/feature_weather/presentation/screens/home_screen.dart';
 
@@ -8,6 +9,7 @@ import '../../features/feature_bookmark/presentation/screens/bookmark_screen.dar
 
 class MainWrapper extends StatelessWidget {
   MainWrapper({Key? key}) : super(key: key);
+  static const routeName = '/MainWrapper';
 
   final PageController pageController = PageController(initialPage: 0);
 
@@ -22,6 +24,8 @@ class MainWrapper extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: BottomNav(pageController: pageController),
+      appBar: AppBar(),
+      drawer: DrawerMenu(),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

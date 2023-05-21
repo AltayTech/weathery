@@ -23,6 +23,8 @@ import '../widgets/bookmark_icon.dart';
 import '../widgets/day_weather_view.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const routeName = '/homeScreen';
+
   const HomeScreen({Key? key}) : super(key: key);
 
   @override

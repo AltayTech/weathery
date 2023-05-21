@@ -23,7 +23,7 @@ void main() {
           // Verifies that the counter starts at 0.
           var detect_home=find.text('Ankara');
           print(detect_home.description);
-          expect(find.,findsOneWidget);
+          expect(find.text('Ankara'),findsOneWidget);
           debugPrint('detection passsed');
 
           // Finds the floating action button to tap on.
