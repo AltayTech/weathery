@@ -69,15 +69,6 @@ class MockGetCurrentWeatherUseCase extends _i1.Mock
         ),
       ) as _i2.WeatherRepository);
   @override
-  set weatherRepository(_i2.WeatherRepository? _weatherRepository) =>
-      super.noSuchMethod(
-        Invocation.setter(
-          #weatherRepository,
-          _weatherRepository,
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
   _i5.Future<_i3.DataState<_i6.CurrentCityEntity>> call(String? param) =>
       (super.noSuchMethod(
         Invocation.method(

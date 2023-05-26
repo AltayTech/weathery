@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:weathery/core/params/forecast_param.dart';
 import 'package:weathery/core/utils/constants.dart';
 
-class ApiProvider {
+class FwApiProvider {
   final Dio _dio = Dio();
 
   var apiKey = Constants.apiKey1;

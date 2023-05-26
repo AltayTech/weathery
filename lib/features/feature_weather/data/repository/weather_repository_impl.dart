@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:weathery/core/params/forecast_param.dart';
 import 'package:weathery/core/resources/data_state.dart';
-import 'package:weathery/features/feature_weather/data/data_source/remote/api_provider.dart';
+import 'package:weathery/features/feature_weather/data/data_source/remote/fw_api_provider.dart';
 import 'package:weathery/features/feature_weather/data/models/current_city_model.dart';
 import 'package:weathery/features/feature_weather/data/models/forecast_day_model.dart';
 import 'package:weathery/features/feature_weather/data/models/suggested_%20city_model.dart';
@@ -12,7 +12,7 @@ import 'package:weathery/features/feature_weather/domain/entities/suggest_city_e
 import 'package:weathery/features/feature_weather/domain/repositories/weather_repository.dart';
 
 class WeatherRepositoryImpl extends WeatherRepository {
-  late ApiProvider apiProvider;
+  late FwApiProvider apiProvider;
 
   WeatherRepositoryImpl(this.apiProvider);
 

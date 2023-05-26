@@ -28,11 +28,12 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   syncfusion_flutter_charts: ^21.2.3
-
+#  auto_route:
 dev_dependencies:
   flutter_test:
     sdk: flutter
   floor_generator:
+#  auto_route_generator:
   build_runner:
 
   #  lint: ^2.0.1

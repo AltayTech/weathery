@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:weathery/features/feature_weather/domain/entities/current_city_entity.dart';
 
 @immutable
-abstract class CwStatus extends Equatable {}
+abstract class CwStatus extends Equatable {
+  get currentCityEntity => null;
+}
 
 class CwLoading extends CwStatus {
   @override
